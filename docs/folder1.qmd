@@ -8,3 +8,5 @@ listing:
     - "date"
     - "title desc"
 ---
+
+说明：根据 Notion 里文章的 Category 来编辑对应的目录清单文件，比如对于 folder1 这个目录来说，需要的排序方式或是展示方式，均可以在 folder1.qmd 这个文件来设置。

@@ -5,3 +5,5 @@ title: "elog-quarto"
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+
+说明：本文件为 Quarto 的首页文件，可以按你需要的方式编辑，请参考 Quarto 的手册。
