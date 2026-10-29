@@ -4,4 +4,10 @@ title: "About"
 
 About this site
 
-本文件为 Quarto 项目文件，可以随意编辑
+本文件为 Quarto 项目文件，可以随意编辑，后面的内容也可以在 Notion 里 urlname 为 about-subpart 的页面里编辑。
+
+以下为直接引用 Notion 里的“关于”页面内容：
+
+---
+
+{{< include about-subpart.md >}}
