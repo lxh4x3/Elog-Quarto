@@ -8,7 +8,7 @@ tags:
 date: '2026-10-29 00:00:00'
 urlname: notion-quarto
 title: Notion + Quarto
-updated: '2026-10-29 13:47:00'
+updated: '2026-10-29 15:54:00'
 ---
 
 # 博客工具
@@ -95,10 +95,16 @@ quarto preview
 ```
 
 
-## 7. 配置 Hexo 博客
+## 7. 配置站点
 
 
-根据 [Hexo](https://hexo.io/) 文档和 [Aurora](https://aurora.tridiamond.tech/cn/)主题配置文档，配置你的博客直到你满意为主，你也可以换别的主题，这里不做演示
+根据 Quarto 配置文档，配置你的博客直到你满意为主，你也可以换别的主题，这里不做演示。
+
+
+仓库目录下的 docs 目录里的 index.qmd、folder1.qmd 为示例文件，可以任意修改。
+
+
+总体原则，把动态需要修改的内容尽量放置在 Notion 里，其它 Quarto 工程设置尽量放置在 docs 目录下的工程文件。
 
 
 ## 8. 提交代码到 github
@@ -107,16 +113,16 @@ quarto preview
 本地访问没问题直接提交所有文件到 Github 仓库即可
 
 
-## 9. 部署到 Vercel
+## 9. 部署到 netlify
 
 
 注册 Vercel 账号并绑定 Github，在 Vercel 导入 该项目，Vercel 会自动识别出该 Hexo 项目，不需要改动，直接选择 Deploy 部署。部署完成会有一个 Vercel 临时域名，你也可以绑定自己的域名。
 
 
-![Untitled.png](/images/11f16ce90a83770d431b41ed6c69310a.png)
+Quarto 比较复杂，所以 build 配置要特别注意，尤其是“Build command”和“Publish directory”，否则很容易失败。
 
 
-![Untitled.png](/images/0c7621609d84be41d0748809f8b11c8f.png)
+![image.png](/images/6f415bf190261a9e3194642ac10386bc.png)
 
 
 ## 10. 配置 Github Actions 权限

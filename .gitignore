@@ -1,5 +1,6 @@
 /docs/.quarto/
 /docs/_site/
+docs/_publish.yml
 **/*.quarto_ipynb
 *.env
 elog.cache.json

@@ -12,4 +12,4 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 以下为直接引用 Notion 里的首页内容：
 
-{{< include index.md >}}
+{{< include index-subpart.md >}}

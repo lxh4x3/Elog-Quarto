@@ -17,6 +17,9 @@ website:
         text: 示例1
       - about.qmd
 
+execute:
+  freeze: auto
+
 format:
   html:
     theme:
