@@ -8,7 +8,7 @@ tags:
 date: '2026-10-29 00:00:00'
 urlname: notion-quarto
 title: Notion + Quarto
-updated: '2026-10-29 17:14:00'
+updated: '2026-10-29 17:29:00'
 ---
 
 # 博客工具
@@ -50,7 +50,7 @@ npm install @elog/cli -g
 ## 4. 配置 Notion 关键信息
 
 
-从 [Elog-Quarto](https://app.notion.com/p/2e1fae34090082d5838d815d3cbe68c4) 复制数据库到你自己的 Notion 空间，后续对样例文件的修改需要按规则来，如果没有把握就不要随意修改属性，只更新内容和目录部分。
+从 [Elog-Quarto](https://app.notion.com/p/ea71ad72e8dd82c9b578818d82a2eca9) 复制数据库到你自己的 Notion 空间，后续对样例文件的修改需要按规则来，如果没有把握就不要随意修改属性，只更新内容和目录部分。
 
 
 按照[文档提示](https://elog.1874.cool/notion/gvnxobqogetukays#notion)配置 Notion 并获取 `token` 和 `databaseId`，在本地`.elog.env`中写入
@@ -65,7 +65,7 @@ NOTION_DATABASE_ID=获取的databaseId
 在 Notion 里配置 Connection 的信息如下：
 
 
-![image.png](/images/f85bea3d4d962ac0dd1e7a28c54d8092.png)
+![image.png](/images/f29026e4674c2b6f0f8220070b4afe63.png)
 
 
 ## 5.配置代理信息
@@ -122,7 +122,7 @@ quarto preview
 如果 Notion 里的内容有更新，则重新执行第5步，知道内容满意为止。
 
 
-## 9. 部署到 netlify
+## 9. 部署到 Netlify
 
 
 站点可以托管到 Vercel 或是 Netlify 这类静态生成网站，从而保证自动构建。
@@ -135,7 +135,7 @@ quarto preview
 
 1. Quarto 比较复杂，所以 build 配置要特别注意，尤其是“Build command”和“Publish directory”，否则很容易失败。
 
-![image.png](/images/6f415bf190261a9e3194642ac10386bc.png)
+![image.png](/images/c14973556c209209829419a4d2001d8b.png)
 
 1. 在 docs 目录下新建 _publish.yml 文件验证内容能否正常发布到 netlify，该文件的模版如下：
 

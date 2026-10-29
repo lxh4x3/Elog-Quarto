@@ -1,19 +1,19 @@
 ---
 cover: ''
 tags: []
-date: '2026-10-29 15:08:00'
+date: '2026-10-29 17:27:00'
 urlname: index-subpart
 title: 首页
-updated: '2026-10-29 17:17:00'
+updated: '2026-10-29 17:27:00'
 ---
 
 说明：本文件为 Quarto 的首页文件，这里编写的内容会紧接于 Quarto 工程目录下 index.qmd 文件尾部，可以按你喜欢的方式添加内容，本页是一些示范。
 
 
-[根目录下的文档1](https://app.notion.com/p/e1dfae340900835b8f80013a8d3e90ae) 
+[根目录下的文档1](https://app.notion.com/p/7bb1ad72e8dd83d2890101e614c6329e) 
 
 
-[根目录下的文档2](https://app.notion.com/p/47afae3409008361a17501f9da33d2e0) 
+[根目录下的文档2](https://app.notion.com/p/3961ad72e8dd83f4a75201df0a06a7ee) 
 
 
 首页的维护方式有两种：
