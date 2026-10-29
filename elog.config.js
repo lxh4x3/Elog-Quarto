@@ -50,7 +50,7 @@ module.exports = {
       catalog: true,
       frontMatter: {
         enable: true,
-        include: ['categories', 'tags', 'title', 'date', 'updated', 'permalink', 'cover', 'description'],
+        include: ['categories', 'tags', 'title', 'date', 'updated', 'permalink', 'cover', 'description', 'listing'],
         timeFormat: true,
       },
     },
