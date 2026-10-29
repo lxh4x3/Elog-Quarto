@@ -8,7 +8,7 @@ tags:
 date: '2026-10-29 00:00:00'
 urlname: notion-quarto
 title: Notion + Quarto
-updated: '2026-10-29 15:54:00'
+updated: '2026-10-29 17:14:00'
 ---
 
 # 博客工具
@@ -50,6 +50,9 @@ npm install @elog/cli -g
 ## 4. 配置 Notion 关键信息
 
 
+从 [Elog-Quarto](https://app.notion.com/p/2e1fae34090082d5838d815d3cbe68c4) 复制数据库到你自己的 Notion 空间，后续对样例文件的修改需要按规则来，如果没有把握就不要随意修改属性，只更新内容和目录部分。
+
+
 按照[文档提示](https://elog.1874.cool/notion/gvnxobqogetukays#notion)配置 Notion 并获取 `token` 和 `databaseId`，在本地`.elog.env`中写入
 
 
@@ -84,7 +87,7 @@ elog sync -e .elog.env
 ## 6.启动 Quarto
 
 
-数据如果同步正确，你的 Notion 数据都会存放在 docs 目录里，你可以根据 _quarto 的配置信息来修改项目配置以决定你让 Quarto 来如何显示你的效果。
+数据如果同步正确，你的 Notion 数据都会下载为 Markdown 并存放在 docs 目录，你可以根据 _quarto 的配置信息来修改项目配置以决定你让 Quarto 来如何显示你的效果。
 
 
 在项目根目录运行 Quarto 启动命令，会自动打开本地博客
@@ -107,76 +110,51 @@ quarto preview
 总体原则，把动态需要修改的内容尽量放置在 Notion 里，其它 Quarto 工程设置尽量放置在 docs 目录下的工程文件。
 
 
+这里特意把“首页”和“关于”两个页面拆成了父子页面设计，有关配置和显示式样的内容在代码目录的 docs/index.qmd 和 docs/about.qmd 页面里设置，可以按 Quarto 的要求灵活修改。对于动态需要更新的内容，可以在 Notion 里的“首页”（本质上是 urlname 为 index-subpart）和“关于”（本质上是 urlname 为 about-subpart）页面调整。
+
+
 ## 8. 提交代码到 github
 
 
-本地访问没问题直接提交所有文件到 Github 仓库即可
+本地访问没问题直接提交所有文件到 Github 仓库即可。
+
+
+如果 Notion 里的内容有更新，则重新执行第5步，知道内容满意为止。
 
 
 ## 9. 部署到 netlify
 
 
-注册 Vercel 账号并绑定 Github，在 Vercel 导入 该项目，Vercel 会自动识别出该 Hexo 项目，不需要改动，直接选择 Deploy 部署。部署完成会有一个 Vercel 临时域名，你也可以绑定自己的域名。
+站点可以托管到 Vercel 或是 Netlify 这类静态生成网站，从而保证自动构建。
 
 
-Quarto 比较复杂，所以 build 配置要特别注意，尤其是“Build command”和“Publish directory”，否则很容易失败。
+注册 Netlify 账号并绑定 Github，在 Netlify 导入 该项目，Quarto 比较复杂不同于 Hexo ，需要逐步验证在 Netlify 的部署（有兴趣了解的可以读一下官方文档 [Netlify – Quarto](https://quarto.org/docs/publishing/netlify.html)）。
 
+
+因为本项目的模版文件为定制化设置，所以请严格按照本教程里的说明来配置：
+
+1. Quarto 比较复杂，所以 build 配置要特别注意，尤其是“Build command”和“Publish directory”，否则很容易失败。
 
 ![image.png](/images/6f415bf190261a9e3194642ac10386bc.png)
 
+1. 在 docs 目录下新建 _publish.yml 文件验证内容能否正常发布到 netlify，该文件的模版如下：
 
-## 10. 配置 Github Actions 权限
-
-
-在 Github 仓库的设置中找到 `Actions-General`，打开流水线写入权限`Workflow permissions`
-
-
-    ![Untitled.png](/images/73243f6663fd601532b508283a3b704e.png)
-
-
-## 11. 配置环境变量
-
-
-在本地运行时，用的是`.elog.env`文件中定义的 Notion 账号信息，而在 Github Actions 时，需要提前配置环境变量。
-
-
-在 Github 仓库的设置中找到 `Secrets  and variables`，新增仓库的环境变量`NOTION_DATABASE_ID`和`NOTION_TOKEN`和`.elog.env`保持一致即可
-
-
-![Untitled.png](/images/fd99b993627a5f8f7887761eebd41d61.png)
-
-
-## 12. 自动化部署
-
-
-当在 Notion 中改动文档后，手动/自动触发 Github Actions流水线，会重新从 Notion 增量拉取文档，自动提交代码到 Github 仓库。
-
-
-Vercel 会实时监测仓库代码，当有新的提交时都会重新部署博客。如此就实现了自动化部署博客。
-
-
-整个流程的关键点就在于：如何手动/自动触发 Github Actions
-
-
-在项目.`github/workflows/sync.yaml`中已经配置了外部 API 触发 Github Actions 事件，所以只需要调用 API 触发流水线即可。
-
-
-### 手动触发
-
-
-为了方便，这里提供一个部署在 Vercel 的免费公用的[**ServerlessAPI**](https://github.com/elog-x/serverless-api)，只需要配置好 URL 参数并浏览器访问即可触发流水线
-
-
-```shell
-https://serverless-api-elog.vercel.app/api/github?user=xxx&repo=xxx&event_type=deploy&token=xxx
+```plain text
+- source: project
+  netlify:
+    - id: "5f3abafe-68f9-4c1d-835b-9d668b892001"
+      url: "https://tubular-unicorn-97bb3c.netlify.app"
 ```
 
+1. 检查发布是否正常：
 
-### 自动触发
+```plain text
+quarto render
+quarto publish netlify
+```
 
-
-可在 Notion 中结合 Slack 触发，[参考教程](https://elog.1874.cool/notion/vy55q9xwlqlsfrvk)，这里就不做进一步演示了
-
+1. 打开配置的 netlify URL，如果能正常看到站点，就表示一切正常。
+2. 检查 docs/netlify.toml 文件，检查里面的 Quarto 版本号是否和你本地一致，只要差别不大应该都一样，如果不一样可以修改为和你本地版本一致，然后提交到 Github 触发自动构建。
 
 # 自定义 Elog 配置
 
@@ -187,8 +165,8 @@ https://serverless-api-elog.vercel.app/api/github?user=xxx&repo=xxx&event_type=d
 # 博客示例
 
 
-示例仓库：[https://github.com/LetTTGACO/notion-hexo](https://github.com/LetTTGACO/notion-hexo)
+示例仓库：[https://github.com/Wattskemov/Elog-Quarto](https://github.com/Wattskemov/Elog-Quarto)
 
 
-博客示例地址：[https://notion-hexo.vercel.app](https://notion-hexo.vercel.app/)
+博客示例地址：[https://elog-quarto.netlify.app/](https://elog-quarto.netlify.app/)
 

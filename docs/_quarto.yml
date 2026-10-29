@@ -15,6 +15,8 @@ website:
         text: folder3
       - href: root-example-1.md
         text: 示例1
+      - href: https://lxh4x3.netlify.app/
+        text: 主站
       - about.qmd
 
 execute:
