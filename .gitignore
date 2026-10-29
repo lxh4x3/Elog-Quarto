@@ -1,0 +1,5 @@
+/docs/.quarto/
+/docs/_site/
+**/*.quarto_ipynb
+*.env
+elog.cache.json

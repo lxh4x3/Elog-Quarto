@@ -1,0 +1,10 @@
+---
+title: "folder2"
+listing:
+  contents: folder2
+  type: grid
+  grid-columns: 2
+  sort:
+    - "date"
+    - "title desc"
+---
