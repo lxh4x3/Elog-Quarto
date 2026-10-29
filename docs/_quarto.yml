@@ -13,6 +13,8 @@ website:
         text: folder2
       - href: folder3.qmd
         text: folder3
+      - href: root-example-1.md
+        text: 示例1
       - about.qmd
 
 format:
