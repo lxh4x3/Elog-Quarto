@@ -8,7 +8,7 @@ tags:
 date: '2026-10-29 00:00:00'
 urlname: notion-quarto
 title: Notion + Quarto
-updated: '2026-10-29 17:29:00'
+updated: '2026-10-30 11:34:00'
 ---
 
 # 博客工具
@@ -169,4 +169,40 @@ quarto publish netlify
 
 
 博客示例地址：[https://elog-quarto.netlify.app/](https://elog-quarto.netlify.app/)
+
+
+# Q & A
+
+
+以下收集到的一些常见疑问，写到下面。
+
+
+## 为什么要用 Quarto？
+
+
+这是一个好问题，在有了 Hugo、Hexo 等一系列静态建站工具，为什么还要用 Quarto 呢？
+
+
+Quarto 的主要场景是科学写作，尤其是在文献交叉引用环节做得很好，语法特别简单利落。而 Hugo、Hexo 这些工具并不原生支持 BibTeX 参考文献引用，就算有一些插件能用上 BibTeX，语法上也没有 Quarto（实际上是 pandoc）舒服。
+
+
+## 为什么要用 Elog + Quarto？
+
+
+Notion 或是语雀这些工具对 BibTeX 这些支持不足，无法自动引用参考文献，所以无法直接依赖 BibTeX 来导出生成完整的文章。Zettlr 虽然支持 BibTeX，但是作为一个编辑器来讲，这方面体验做得并不好。
+
+
+Quarto 本身不提供编辑器，或者说 R Studio 自带的编辑器不好用，我们依然喜欢在 Notion、语雀或是 Joplin 里来写原文，同时标上参考文献等，再导出来用 Quarto 排版生成。这样的流程是实践下来最舒服的，比较专业的记事本软件在写作本身方面确实体感比 Visual Studio Code 这类好太多了。
+
+
+如果手工从 Notion、语雀或是 Joplin 导出 markdown，又面临一个图片的问题。
+
+
+而 Elog 恰恰把这些问题都解决了，可以完整的按预期导出文字、图片来供 Quarto 后续自动排版。
+
+
+Elog + Quarto 这套组合是我实践下来感觉最舒服的。
+
+
+## 为什么要用 Elog + Quarto + Netlify？
 
